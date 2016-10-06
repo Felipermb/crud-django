@@ -1,0 +1,60 @@
+body{
+  background-color: #691421;
+}
+
+h1{
+  color: burlywood;
+  text-align: center;
+}
+
+h2{
+  color: white;
+  text-align: center;
+}
+
+h3, h4, h5, h6{
+  color: white;
+}
+
+table{
+  color: white;
+  text-align: center;
+  border:
+}
+
+p{ //paragrafo
+  font-family: arial;
+  font-size: 40tx;
+}
+
+label{
+  color: white;
+  font-size: 20px;
+}
+
+th, td{
+  border-bottom: 1px solid white;
+  border-top: 2px dashed white;
+}
+
+tr:nth-child(even) {background-color: #002568}
+
+tr:hover {background-color: burlywood}
+
+#area-mensagens{
+  border: 1px dashed burlywood;
+  padding: 5px 5px 5px 5px;
+  /*
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  */
+}
+
+.destaque{
+  text-transform: uppercase;
+  font-size: 30tx;
+  color: #00AA45 ;
+  font-style: italic;
+}
