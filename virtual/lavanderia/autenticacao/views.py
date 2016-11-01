@@ -10,7 +10,15 @@ class Autenticacao(View):
         return render(request, 'autenticacao/login.html', {})
 
     def post(self, request):
-
-        # print request.POST.get('senha')  #"pegar somente a senha"
-
+        	print request.POST.get("login")
+        	login = request.POST.get("login")
+        	print request.POST.get("senha")
+        	senha = request.POST.get("senha")
 		return render(request, 'autenticacao/login.html', {})
+
+class Index(View):
+    def get(self, request):
+        return render(request, 'index.html', {})
+
+    def post(self, request):
+        return render(request, 'index.html', {})
