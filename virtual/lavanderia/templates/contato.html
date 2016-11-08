@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 
 {% block content %}
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -14,13 +14,13 @@
             <div class="col-sm-12">
               <div class="left col-xs-7">
                 <h2>Felipe Reis</h2>
-                <p><strong>About: </strong> Web Designer / Desenvolvedor / Graphic Artist  </p>
+                <p><strong>About: </strong> Web Designer / Development / Graphic Artist  </p>
                 <ul class="list-unstyled">
                   <li><i class="fa fa-building"></i> Email: felipereis.m.b@uft.edu.br </li>
                 </ul>
               </div>
               <div class="right col-xs-5 text-center">
-                <h1> <img src="imagem"> </h1>
+                <h1> <img src="{% static "img/felipe.jpg" %}" height="80" width="80"> </h1>
               </div>
             </div>
             <div class="col-xs-12 bottom text-center">
@@ -39,14 +39,14 @@
           <div class="well profile_view">
             <div class="col-sm-12">
               <div class="left col-xs-7">
-                <h2>Paulo Atabvila</h2>
-                <p><strong>About: </strong> Web Designer / Desenvolvedor / Graphic Artist  </p>
+                <h2>Paulo Atavila</h2>
+                <p><strong>About: </strong> Web Designer / Development / Graphic Artist  </p>
                 <ul class="list-unstyled">
                   <li><i class="fa fa-building"></i> Email: pauloatavila@uft.edu.br </li>
                 </ul>
               </div>
               <div class="right col-xs-5 text-center">
-                <h1> <img src="imagem"> </h1>
+                <h1> <img src="{% static "img/paulo.jpg" %}" height="80" width="80"> </h1>
               </div>
             </div>
             <div class="col-xs-12 bottom text-center">
@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
 </div>
 
