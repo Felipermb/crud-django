@@ -28,12 +28,44 @@ class Autenticacao(View):
 
         return render(request, 'autenticacao/login.html', resposta)
 
+
+
 class Index(LoginRequiredMixin, View):
     login_url = '/'
-
+    
     def get(self, request):
         
-        return render(request, 'index.html', {})
+        resposta = {
+            'nome' : 'Teste'
+        }
+        return render(request, 'index.html', resposta)
 
     def post(self, request):
         return render(request, 'index.html', {})
+
+
+
+class NovoPedido(LoginRequiredMixin, View):
+    login_url = '/'
+    
+    def get(self, request):
+        
+        resposta = {
+            'nome' : 'Teste'
+        }
+        return render(request, 'novoPedido.html', resposta)
+
+    def post(self, request):
+        return render(request, 'novoPedido.html', {})
+
+class Contato(LoginRequiredMixin, View):
+    login_url = '/'
+
+    def get(self, request):
+        resposta = {
+            'nome' : 'Teste'
+        }
+        return render(request, 'contato.html', resposta)
+
+    def post(self, request):
+        return render(request, 'contato.html', {})
