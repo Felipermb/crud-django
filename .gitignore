@@ -1,0 +1,7 @@
+#excluindo todo o conteudo o diretorio virtual, exceto o subdiretorio sistema
+virtual/*
+!virtual/lavanderia
+#exclui todos os arquivos com as seguintes extenções
+*.pyc
+*.pyo
+.env

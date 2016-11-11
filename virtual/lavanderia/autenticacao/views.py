@@ -10,7 +10,10 @@ class Autenticacao(View):
     View para autenticar usuarios.
     """
     def get(self, request):
-        return render(request, 'autenticacao/login.html', {})
+        if request.user.is_authenticated():
+            return redirect('/index')
+        else:
+            return render(request, 'autenticacao/login.html', {})
 
     def post(self, request):
         resposta = {
@@ -32,9 +35,9 @@ class Autenticacao(View):
 
 class Index(LoginRequiredMixin, View):
     login_url = '/'
-    
+
     def get(self, request):
-        
+
         resposta = {
             'nome' : 'Teste'
         }
@@ -47,9 +50,9 @@ class Index(LoginRequiredMixin, View):
 
 class NovoPedido(LoginRequiredMixin, View):
     login_url = '/'
-    
+
     def get(self, request):
-        
+
         resposta = {
             'nome' : 'Teste'
         }
@@ -69,3 +72,8 @@ class Contato(LoginRequiredMixin, View):
 
     def post(self, request):
         return render(request, 'contato.html', {})
+
+class Logout(View):
+    def get(self,request):
+        logout(request)
+        return redirect('autenticacao')

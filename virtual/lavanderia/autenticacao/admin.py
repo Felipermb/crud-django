@@ -1,4 +1,6 @@
 from django.contrib import admin
-from .models import Autenticacao
+from .models import Cliente, Endereco, Cartao
 
-admin.site.register(Autenticacao)
+admin.site.register(Cliente)
+admin.site.register(Endereco)
+admin.site.register(Cartao)
