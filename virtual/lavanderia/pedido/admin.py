@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
 from django.contrib import admin
 from .models import Pedido, TipoRoupa
 
 
 class TipoRoupaInline(admin.StackedInline):
     model = TipoRoupa
-    extra = 1
-    max_num = 5
+    extra = 0
+    max_num = 10
 
 class PedidoAdmin(admin.ModelAdmin):
     model = Pedido

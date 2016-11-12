@@ -13,7 +13,8 @@ class Autenticacao(View):
         if request.user.is_authenticated():
             return redirect('/index')
         else:
-            return render(request, 'autenticacao/login.html', {})
+            next_url = request.GET.get('next')
+            return render(request, 'autenticacao/login.html', {'next': next_url})
 
     def post(self, request):
         resposta = {
@@ -25,7 +26,8 @@ class Autenticacao(View):
         user = authenticate(username=usuario, password=senha)
         if user:
             login(request, user)
-            return redirect('/index')
+            # return redirect('/index')
+            return redirect(request.POST.get('next', '/index'))
         else:
             resposta['mensagem'] = 'Login ou Senha incorreto(s)'
 
