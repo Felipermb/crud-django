@@ -35,7 +35,14 @@
 
             {% csrf_token %}
 
+
+
+            {% if next %}
+
             <input type="hidden" name="next" value="{{next}}"/>
+
+
+            {% endif %}
 
 
               <h1>Login </h1>

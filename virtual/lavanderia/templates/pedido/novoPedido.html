@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <h2>Novo Pedido</h2>
+    <div class="x_content">
+      <!-- {{form}} -->
+      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+            Responsavel pelo Pedido
+            <span class="required">*</span>
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" >
+            {{ form.nome_responsavel }}
+            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+
+{% block javascript %}
+<!--
+<script>
+$("#segmentos" ).change(function() {
+  var valores = $("#segmentos").val();
+  console.log(valores);
+  $.inArray("1", valores) >=0 ? $('#total-cama').removeClass('hide') : $('#total-cama').addClass('hide');
+  $.inArray("2", valores) >=0 ? $('#total-banho').removeClass('hide') : $('#total-banho').addClass('hide');
+});
+</script> -->
+
+
+{% endblock %}

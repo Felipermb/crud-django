@@ -26,7 +26,6 @@ class Autenticacao(View):
         user = authenticate(username=usuario, password=senha)
         if user:
             login(request, user)
-            # return redirect('/index')
             return redirect(request.POST.get('next', '/index'))
         else:
             resposta['mensagem'] = 'Login ou Senha incorreto(s)'
@@ -49,19 +48,6 @@ class Index(LoginRequiredMixin, View):
         return render(request, 'index.html', {})
 
 
-
-class NovoPedido(LoginRequiredMixin, View):
-    login_url = '/'
-
-    def get(self, request):
-
-        resposta = {
-            'nome' : 'Teste'
-        }
-        return render(request, 'novoPedido.html', resposta)
-
-    def post(self, request):
-        return render(request, 'novoPedido.html', {})
 
 class Contato(LoginRequiredMixin, View):
     login_url = '/'

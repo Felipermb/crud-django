@@ -6,17 +6,19 @@ from datetime import datetime
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 from django.db import models
 
 class Pedido(models.Model):
 
+    nome_responsavel = models.CharField(max_length=200)
     data_pedido = models.DateField(auto_now=True)
     data_busca = models.DateField(default = datetime.now)
     data_entrega = models.DateField(null = True)
     valor_pedido = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     endereco_busca = models.ForeignKey(Endereco,related_name="pedidos_busca")
     endereco_entrega = models.ForeignKey(Endereco,related_name="pedidos_entrega")
-    pagamento = models.ForeignKey(Cartao, related_name="pedidos_pagamento")
+    pagamento = models.ForeignKey(Cartao ,related_name="pedidos_pagamento")
     pecas_branca = models.BooleanField(default=False)
 
     def __str__(self):
