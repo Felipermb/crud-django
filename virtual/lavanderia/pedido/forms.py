@@ -20,3 +20,13 @@ class FormularioPedido(forms.ModelForm):
         self.fields['nome_responsavel'].widget.attrs['class'] = 'form-control has-feedback-left'
         self.fields['nome_responsavel'].widget.attrs['value'] = User.objects.get(id = kwargs['initial']['user']).get_full_name()
         self.fields['nome_responsavel'].widget.attrs['placeholder'] = 'Responsavel pelo pedido'
+
+
+class FormularioTipoRoupa(forms.ModelForm):
+
+    class Meta:
+        model = TipoRoupa
+        exclude = ['pedido']
+
+    def __init__(self, *args, **kwargs):
+        super(FormularioTipoRoupas, self).__init__(*args, **kwargs)
