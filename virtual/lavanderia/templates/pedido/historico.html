@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<ul>
+   {% for pedido in object_list %}
+     <li>
+       {{ pedido.nome_responsavel }}
+     </li>
+   {% endfor %}
+</ul>
+
+{% endblock content %}

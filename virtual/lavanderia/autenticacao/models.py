@@ -20,7 +20,7 @@ class Endereco(models.Model):
 	cliente = models.ForeignKey(Cliente, related_name="enderecos")
 
 	def __str__(self):
-		return '{0}'.format(self.cep)
+		return 'CEP: {0} - NUM: {1}'.format(self.cep, self.numero)
 
 class Cartao(models.Model):
 	num = models.CharField(max_length=16)
@@ -30,4 +30,4 @@ class Cartao(models.Model):
 	cliente = models.ForeignKey(Cliente, related_name="cartoes")
 
 	def __str__(self):
-		return '{0} - {1}'.format(self.nome, self.num)
+		return 'NOME: {0} - CARTAO: {1}{2}{3}{4} .... {5}{6}{7}{8}'.format(self.nome, self.num[0], self.num[1], self.num[2], self.num[3], self.num[12], self.num[13], self.num[14], self.num[15] )
