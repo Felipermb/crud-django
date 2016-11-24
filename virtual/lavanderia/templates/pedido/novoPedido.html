@@ -26,7 +26,7 @@
             Data para busca das peças
             <span class="required">*</span>
           </label>
-          <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+          <div class="col-md-3 col-sm-3 col-xs-6 form-group" type="date" min= { datetime.now } >
             {{ form.data_busca }}
             <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
           </div>
@@ -102,6 +102,48 @@
 
 
 
+
+        <div class="form-group">
+          <div class="row">
+           <label class="control-label col-md-3 col-sm-3 col-xs-12">Selecione os tipos de roupas</label>
+           <div class="col-md-9 col-sm-9 col-xs-12">
+             <select class="select2_multiple form-control hide" multiple="multiple" id="segmentos">
+               <option value="1">Cama</option>
+               <option value="2">Banho</option>
+               <option value="3">Mesa</option>
+               <option value="4">Roupas Pessoais</option>
+               <option value="5">Roupas Pessoais</option>
+               <option value="6">Cama</option>
+               <option value="7">Banho</option>
+               <option value="8">Mesa</option>
+               <option value="9">Roupas Pessoais</option>
+               <option value="10">Roupas Pessoais</option>
+             </select>
+           </div>
+          </div>
+       </div>
+
+         <div class="form-group">
+           <div class="row hide" id="total-cama">
+             <label class="control-label col-md-3 col-sm-3 col-xs-12">Total cama</label>
+             <div class="col-md-9 col-sm-9 col-xs-12">
+               <input type="text" class="form-control">
+             </div>
+           </div>
+         </div>
+         <div class="form-group">
+           <div class="row hide" id="total-banho">
+             <label class="control-label col-md-3 col-sm-3 col-xs-12">Total banho</label>
+             <div class="col-md-1 col-sm-1 col-xs-1 form-group" >
+                
+            </div>
+           </div>
+         </div>
+
+
+
+
+
       </form>
 
 
@@ -147,6 +189,13 @@ $("#segmentos" ).change(function() {
   $( "#form-pedido" ).submit(function( event ) {
     alert( "Handler for .submit() called." );
     event.preventDefault();
+  });
+
+  $("#segmentos" ).change(function() {
+    var valores = $("#segmentos").val();
+    console.log(valores);
+    $.inArray("1", valores) >=0 ? $('#total-cama').removeClass('hide') : $('#total-cama').addClass('hide');
+    $.inArray("2", valores) >=0 ? $('#total-banho').removeClass('hide') : $('#total-banho').addClass('hide');
   });
 
 </script>

@@ -94,22 +94,28 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+            <form action="/" method="novoUsuario">
               <h1>Criando Conta</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Login" required="" />
+               <div>
+                <input type="text" class="form-control" name="first-name" placeholder="Primeiro Nome" required="" />
+              </div>
+               <div>
+                <input type="text" class="form-control" name="last-name" placeholder="Ultimo Nome" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder={{ form.as_p }}"E-mail" required="" />
+                <input type="text" class="form-control" name="login" placeholder="Login" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Senha" required="" />
+                <input type="email" class="form-control" name="email" placeholder={{ form.as_p }}"E-mail" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Enviar</a>
+                <input type="password" class="form-control" name="senha" placeholder="Senha" required="" />
+              </div>
+             <div>
+                <button type="submit">Entrar</button>
               </div>
 
-              <div class="clearfix"></div>
+              <div class="clearfix"></div> 
 
               <div class="separator">
                 <p class="change_link">Já é Membro?
@@ -127,6 +133,9 @@
             </form>
           </section>
         </div>
+
+
+
       </div>
     </div>
   </body>

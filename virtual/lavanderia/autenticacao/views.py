@@ -1,9 +1,10 @@
+
 # -*- coding: utf-8 -*-
 from django.views.generic import View
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib.auth.models import User
 
 class Autenticacao(View):
     """
@@ -31,6 +32,21 @@ class Autenticacao(View):
             resposta['mensagem'] = 'Login ou Senha incorreto(s)'
 
         return render(request, 'autenticacao/login.html', resposta)
+
+    def novoUsuario(self,request):
+        usuario = request.POST.get("first-name")
+        senha = request.POST.get("senha")
+
+        print usuario
+        # user = authenticate(username=usuario, password=senha)
+        # if user:
+        #     login(request, user)
+        #     return redirect(request.POST.get('next', '/index'))
+        # else:
+        #     resposta['mensagem'] = 'Login ou Senha incorreto(s)'
+
+        return redirect(request.POST.get('next', '/index'))
+
 
 
 
@@ -65,3 +81,4 @@ class Logout(View):
     def get(self,request):
         logout(request)
         return redirect('autenticacao')
+

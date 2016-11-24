@@ -27,6 +27,7 @@ class FormularioPedido(forms.ModelForm):
 
 
         self.fields['data_busca'].widget.attrs['class'] = 'form-control has-feedback-left '
+        self.fields['data_busca'].widget.attrs['type'] = "date"
 
         self.fields['endereco_busca'].widget.attrs['class'] = 'form-control has-feedback-left '
         self.fields['endereco_entrega'].widget.attrs['class'] = 'form-control has-feedback-left '
