@@ -19,7 +19,7 @@ class Pedido(models.Model):
     endereco_busca = models.ForeignKey(Endereco,related_name="pedidos_busca")
     endereco_entrega = models.ForeignKey(Endereco,related_name="pedidos_entrega")
     pagamento = models.ForeignKey(Cartao ,related_name="pedidos_pagamento")
-    pecas_branca = models.BooleanField(default=False)
+    # pecas_branca = models.BooleanField(default=False)
 
     def __str__(self):
     	 return u'{0} - R$ {1}'.format(self.endereco_entrega, self.valor_pedido)
@@ -85,7 +85,9 @@ class Pedido(models.Model):
 
 class TipoRoupa(models.Model):
     tipo = models.IntegerField(choices=TIPOS_ROUPAS, default=DEFAULT_TIPO_ROUPAS)
+    # const.TIPOS_ROUPAS
     quantidade = models.IntegerField()
+    pecas_branca = models.BooleanField(default=False)
     pedido = models.ForeignKey(Pedido, related_name="tipos_roupas")
 
     def __str__(self):

@@ -4,6 +4,7 @@ from django import forms
 from pedido.models import *
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
+from const import *
 
 from django.forms.extras.widgets import SelectDateWidget
 
@@ -39,12 +40,21 @@ class FormularioTipoRoupa(forms.ModelForm):
     class Meta:
         model = TipoRoupa
         exclude = ['pedido']
+        tipo = forms.MultipleChoiceField(
+                    choices = TIPOS_ROUPAS, # this is optional
+                    widget  = forms.CheckboxSelectMultiple,
+                )
 
     def __init__(self, *args, **kwargs):
         super(FormularioTipoRoupa, self).__init__(*args, **kwargs)
+        self.fields['tipo'] = forms.BooleanField( widget = forms.CheckboxSelectMultiple(choices = TIPOS_ROUPAS ))
         self.fields['quantidade'].widget.attrs['min'] = 0
         self.fields['quantidade'].widget.attrs['value'] = 0
         self.fields['quantidade'].widget.attrs['class'] = 'form-control'
 
+
+        # self.fields['pecas_branca'].widget.attrs['class'] = 'form checkbox'
+
         self.fields['tipo'].widget.attrs['class'] = 'form-control'
+        # self.fields['tipo'].
         # self.fields['']

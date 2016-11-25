@@ -8,100 +8,157 @@
     <h2>Novo Pedido</h2>
     <div class="x_content">
       <!-- {{form}} -->
-      <form id="form-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-            Responsavel pelo Pedido
-            <span class="required">*</span>
-          </label>
-          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" >
-            {{ form.nome_responsavel }}
-            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-          </div>
-        </div>
+      <form id="form-pedido_teste" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
+          <div id="wizard" class="form_wizard wizard_horizontal">
+            <ul class="wizard_steps">
+              <li>
+                <a href="#step-1" >
+                  <span class="step_no">1</span>
+                  <span class="step_descr">
+                      Selecionar Peças<br>
+                      <small>Escolha os tipos de peças para lavagem</small>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#step-2" >
+                  <span class="step_no">2</span>
+                  <span class="step_descr">
+                      Finalizar Pedido<br>
+                      <small>Dados para finalizar pedido</small>
+                  </span>
+                </a>
+              </li>
+            </ul>
 
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-            Data para busca das peças
-            <span class="required">*</span>
-          </label>
-          <div class="col-md-3 col-sm-3 col-xs-6 form-group" type="date" min= { datetime.now } >
-            {{ form.data_busca }}
-            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-          </div>
-        </div>
+          <div class="stepContainer">
+            <div id="step-1" class="content" >
+              <form id="form-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
+                <div id="TiposRoupas" class="form-group col-xs-12" >
 
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-            Endereço para busca das peças
-            <span class="required">*</span>
-          </label>
-          <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-            {{ form.endereco_busca }}
-            <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-            Endereço para entrega das peças
-            <span class="required">*</span>
-          </label>
-          <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-            {{ form.endereco_entrega }}
-            <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-            Cartão para pagamento
-            <span class="required">*</span>
-          </label>
-          <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-            {{ form.pagamento }}
-            <span class="fa fa-credit-card form-control-feedback left" aria-hidden="true"></span>
-          </div>
-        </div>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                      Tipos de Roupas e Quantidades
+                      <span class="required">*</span>
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                      {{ n_form.tipo }}
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-1 form-group" >
+                      {{ n_form.quantidade }}
+                    </div>
 
 
-        <div class="form-group">
-          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-            <button id="botaoAdd" class="btn btn-dark">Adicionar Peças</button>
-          </div>
 
-            <div class="input_fields_wrap ">
+                    <label class="control-label col-md-1 col-sm-1 col-xs-1">Peças Brancas</label>
+                    <label class="control-label col-md-1 col-sm-1 col-xs-1">
+                      <div class="col-md-1 col-sm-1 col-xs-1 form-group" >
+                        {{ n_form.pecas_branca }}
+                      </div>
+                    </label>
+
+
+
+                    <!-- <a href="#" id="remove_field" class="btn btn-danger">Remover Peça(s)</a> -->
+
+                </div>
+
+              </form>
+
             </div>
 
-        </div>
 
-        <div class="form-group">
-          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-            <a href="{% url 'index'%}" class="btn btn-primary">Cancelar</a>
-            <button type="submit" class="btn btn-success">Enviar Pedido</button>
+
+
+
+
+            <div id="step-2" class="hide content" >
+              <!-- <h2 class="StepTitle">Step 2 Content</h2> -->
+              <form id="form-finaliza-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Responsavel pelo Pedido
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" >
+                    {{ form.nome_responsavel }}
+                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Data para busca das peças
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" type="date" min= { datetime.now } >
+                    {{ form.data_busca }}
+                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Endereço para busca das peças
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                    {{ form.endereco_busca }}
+                    <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Endereço para entrega das peças
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                    {{ form.endereco_entrega }}
+                    <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Cartão para pagamento
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                    {{ form.pagamento }}
+                    <span class="fa fa-credit-card form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+
+                <!-- <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button id="botaoAdd" class="btn btn-dark">Adicionar Peças</button>
+                  </div>
+
+                    <div class="input_fields_wrap ">
+                    </div>
+
+                </div> -->
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <a href="{% url 'index'%}" class="btn btn-primary">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Enviar Pedido</button>
+                  </div>
+                </div>
+
+
+
+
+              </form>
+
+
+            </div>
+
           </div>
-        </div>
-
-
-        <div id="TiposRoupas" class="hide form-group col-xs-12" >
-
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-              Tipos de Roupas e Quantidades
-              <span class="required">*</span>
-            </label>
-            <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-              {{ n_form.tipo }}
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-1 form-group" >
-              {{ n_form.quantidade }}
-            </div>
-            <a href="#" id="remove_field" class="btn btn-danger">Remover Peça(s)</a>
 
         </div>
-
-
-
       </form>
 
 
@@ -121,6 +178,10 @@ $("#segmentos" ).change(function() {
   $.inArray("2", valores) >=0 ? $('#total-banho').removeClass('hide') : $('#total-banho').addClass('hide');
 });
 </script> -->
+
+
+
+
 <script>
   var max_fields      = 11; //maximum input boxes allowed
   var wrapper         = $(".input_fields_wrap"); //Fields wrapper
@@ -134,6 +195,7 @@ $("#segmentos" ).change(function() {
           x++; //text box increment
           //$(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
           $('#TiposRoupas').clone().removeClass('hide').appendTo($('.input_fields_wrap'));
+          // $('#TiposRoupas').setAttribute("id", "tipo1");
       }
   });
 
@@ -142,7 +204,7 @@ $("#segmentos" ).change(function() {
       e.preventDefault(); $(this).parent('div').remove(); x--;
   })
 
-  
+
 
   $( "#form-pedido" ).submit(function( event ) {
     alert( "Handler for .submit() called." );
@@ -156,8 +218,22 @@ $("#segmentos" ).change(function() {
   //   $.inArray("2", valores) >=0 ? $('#total-banho').removeClass('hide') : $('#total-banho').addClass('hide');
   // });
 
-</script>
+  $(document).ready(function() {
+    var valor = 0;
+    $('#wizard').smartWizard();
 
+    $('#wizard_verticle').smartWizard({
+      transitionEffect: 'slide'
+    });
+
+
+
+    $('#step-2').removeClass('hide');
+    $('.buttonNext').addClass('btn btn-success');
+    $('.buttonPrevious').addClass('btn btn-primary');
+    $('.buttonFinish').addClass('btn btn-default');
+  });
+</script>
 
 
 {% endblock %}
