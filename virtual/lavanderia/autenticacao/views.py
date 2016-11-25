@@ -33,11 +33,11 @@ class Autenticacao(View):
 
         return render(request, 'autenticacao/login.html', resposta)
 
-    def novoUsuario(self,request):
-        usuario = request.POST.get("first-name")
+    def novousuario(self,request):
+        primeiroNome = request.NOVOUSUARIO.get("first-name")
         senha = request.POST.get("senha")
 
-        print usuario
+        print self.primeiroNome
         # user = authenticate(username=usuario, password=senha)
         # if user:
         #     login(request, user)
@@ -45,7 +45,7 @@ class Autenticacao(View):
         # else:
         #     resposta['mensagem'] = 'Login ou Senha incorreto(s)'
 
-        return redirect(request.POST.get('next', '/index'))
+        return redirect(request.NOVOUSUARIO.get('next', '/index'))
 
 
 
