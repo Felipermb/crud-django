@@ -10,7 +10,7 @@
     <form class="" action="" method="post">
       {% csrf_token %}
       <div id="wizard" class="form_wizard wizard_horizontal">
-        <ul class="wizard_steps">
+        <ul class="wizard_steps anchor">
           <li>
             <a href="#step-1" >
               <span class="step_no">1</span>
@@ -60,7 +60,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                       Camiseta ou Blusa 
                     </label>
-                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" id="id_camisa">
                        {{ form.camiseta }}
 
                     </div>
@@ -224,9 +224,8 @@
             
             </div>
 
-
-
             <div id="step-2" class="hide content" >
+            ::before
 
               <div class="form-group row">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
