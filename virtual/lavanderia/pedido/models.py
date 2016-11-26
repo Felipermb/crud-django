@@ -19,86 +19,118 @@ class Pedido(models.Model):
     endereco_busca = models.ForeignKey(Endereco,related_name="pedidos_busca")
     endereco_entrega = models.ForeignKey(Endereco,related_name="pedidos_entrega")
     pagamento = models.ForeignKey(Cartao ,related_name="pedidos_pagamento")
-    # pecas_branca = models.BooleanField(default=False)
+    usuario = models.ForeignKey(Cliente, related_name="usuario_pedido", default='User.id')
+    
+    camisa = models.BooleanField(default=True)
+    quantidadeCamisa = models.IntegerField(default=0)
+
+    camiseta = models.BooleanField()
+    quantidadeCamiseta = models.IntegerField(default=0)
+
+    edredom = models.BooleanField()
+    quantidadeEdredom = models.IntegerField(default=0)
+
+    lencol = models.BooleanField()
+    quantidadeLencol = models.IntegerField(default=0)
+
+    rLuxo = models.BooleanField()
+    quantidadeRLuxo = models.IntegerField(default=0)
+
+    rIntima = models.BooleanField()
+    quantidadeRIntima = models.IntegerField(default=0)
+
+    rJeans = models.BooleanField()
+    quantidadeRJeans = models.IntegerField(default=0)
+
+    tBanho = models.BooleanField()
+    quantidadeTBanho = models.IntegerField(default=0)
+
+    tMesa = models.BooleanField()
+    quantidadeTMesa = models.IntegerField(default=0)
+
+    tRosto = models.BooleanField()
+    quantidadeTRosto = models.IntegerField(default=0)
+
+    pecas_branca = models.BooleanField(default=False)
 
     def __str__(self):
-    	 return u'{0} - R$ {1}'.format(self.endereco_entrega, self.valor_pedido)
+    	 return '{0} - R$ {1}'.format(self.endereco_entrega, self.valor_pedido)
     	# return ''.format()
 
-    def calcula_valor(self):
-        valor = 0
-        quantidade_roupas = 0
-        # print "testeeeee " + str(self.tipos_roupas.count())
-        for tipo in self.tipos_roupas.all():
-            # print '----> ', tipo.tipo, tipo.get_tipo_display()
-            if tipo.tipo == 1:
-                valor += tipo.quantidade * 7
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 2:
-                valor += tipo.quantidade * 4
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 3:
-                valor += tipo.quantidade * 22
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 4:
-                valor += tipo.quantidade * 9
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 5:
-                valor += tipo.quantidade * 25
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 6:
-                valor += tipo.quantidade * 3
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 7:
-                valor += tipo.quantidade * 9
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 8:
-                valor += tipo.quantidade * 4
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 9:
-                valor += tipo.quantidade * 10
-                quantidade_roupas += 1
-                pass
-            elif tipo.tipo == 10:
-                valor += tipo.quantidade * 2
-                quantidade_roupas += 1
-                pass
-            # else:
-            #     # mais mais codigo
-            #     pass
+    # def calcula_valor(self):
+    #     valor = 0
+    #     quantidade_roupas = 0
+    #     # print "testeeeee " + str(self.tipos_roupas.count())
+    #     for tipo in self.tipos_roupas.all():
+    #         # print '----> ', tipo.tipo, tipo.get_tipo_display()
+    #         if tipo.tipo == 1:
+    #             valor += tipo.quantidade * 7
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 2:
+    #             valor += tipo.quantidade * 4
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 3:
+    #             valor += tipo.quantidade * 22
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 4:
+    #             valor += tipo.quantidade * 9
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 5:
+    #             valor += tipo.quantidade * 25
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 6:
+    #             valor += tipo.quantidade * 3
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 7:
+    #             valor += tipo.quantidade * 9
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 8:
+    #             valor += tipo.quantidade * 4
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 9:
+    #             valor += tipo.quantidade * 10
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 10:
+    #             valor += tipo.quantidade * 2
+    #             quantidade_roupas += 1
+    #             pass
+    #         # else:
+    #         #     # mais mais codigo
+    #         #     pass
 
-        if quantidade_roupas > 1 and self.pecas_branca == True:
-            valor +=7
+    #     if quantidade_roupas > 1 and self.pecas_branca == True:
+    #         valor +=7
 
-        valor += 5 #Valor do Frete (Chama o Leo) OBS: nao passar o CEP, pois ele tem que descobrir
-        self.valor_pedido = valor
-        self.save()
+    #     valor += 5 #Valor do Frete (Chama o Leo) OBS: nao passar o CEP, pois ele tem que descobrir
+    #     self.valor_pedido = valor
+    #     self.save()
 
 
-class TipoRoupa(models.Model):
-    tipo = models.IntegerField(choices=TIPOS_ROUPAS, default=DEFAULT_TIPO_ROUPAS)
-    # const.TIPOS_ROUPAS
-    quantidade = models.IntegerField()
-    pecas_branca = models.BooleanField(default=False)
-    pedido = models.ForeignKey(Pedido, related_name="tipos_roupas")
+# class TipoRoupa(models.Model):
+#     tipo = models.IntegerField(choices=TIPOS_ROUPAS, default=DEFAULT_TIPO_ROUPAS)
+#     # const.TIPOS_ROUPAS
+#     quantidade = models.IntegerField()
+#     pecas_branca = models.BooleanField(default=False)
+#     pedido = models.ForeignKey(Pedido, related_name="tipos_roupas")
 
-    def __str__(self):
-        # return '{0} - {1} {2}'.format(self.tipo, self.get_tipo_display(), self.pedido)
-        return '{0} - {1}'.format(self.tipo, self.get_tipo_display())
+#     def __str__(self):
+#         # return '{0} - {1} {2}'.format(self.tipo, self.get_tipo_display(), self.pedido)
+#         return '{0} - {1}'.format(self.tipo, self.get_tipo_display())
 
 
 
 
 
 # method for updating
-@receiver(post_save, sender=TipoRoupa)
-def atualiza_valor_pedido(sender, instance, **kwargs):
-    instance.pedido.calcula_valor()
+# @receiver(post_save, sender=TipoRoupa)
+# def atualiza_valor_pedido(sender, instance, **kwargs):
+#     instance.pedido.calcula_valor()

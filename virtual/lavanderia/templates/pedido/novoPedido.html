@@ -7,8 +7,307 @@
   <div class="x_panel">
     <h2>Novo Pedido</h2>
     <div class="x_content">
-      <!-- {{form}} -->
-      <form id="form-pedido_teste" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
+    <form class="" action="" method="post">
+      {% csrf_token %}
+      <div id="wizard" class="form_wizard wizard_horizontal">
+        <ul class="wizard_steps">
+          <li>
+            <a href="#step-1" >
+              <span class="step_no">1</span>
+              <span class="step_descr">
+                  Selecionar Peças<br>
+                  <small>Escolha os tipos de peças para lavagem</small>
+              </span>
+
+            </a>
+          </li>
+
+          <li>
+            <a href="#step-2" >
+              <span class="step_no">2</span>
+              <span class="step_descr">
+                  Finalizar Pedido<br>
+                  <small>Dados para finalizar pedido</small>
+              </span>
+            </a>
+          </li>
+        </ul>
+          <div class="stepContainer">
+            <div id="step-1" class="content">
+                 <div class="hide">
+                   {{ form.usuario }}
+                 </div>
+                 <div class="x_panel">
+                    <div class="form-group row ">
+                      <div class="col-lg-6 col-lg-offset-3">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                          Camisa
+                        </label>
+                        <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                           {{ form.camisa }}
+
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4" >
+                            {{ form.quantidadeCamisa }}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Camiseta ou Blusa 
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.camiseta }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeCamiseta }}
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Edredom
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                         {{ form.edredom }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                         {{ form.quantidadeEdredom }}
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Lençol
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.lencol }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeLencol }}
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Roupa de Luxo
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.rLuxo }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeRLuxo }}
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Roupas Intimas
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.rIntima }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeRIntima }}
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Roupas Jeans
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.rJeans }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeRJeans }}
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Toalhas de Banho
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.tBanho }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeTBanho }}
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Toalha de Mesa
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.tMesa }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeTMesa }}
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Toalha de Rosto
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.tRosto }}
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4" >
+                        {{ form.quantidadeTRosto }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <div class="x_panel">
+                <div class="form-group row ">
+                  <div class="col-lg-6 col-lg-offset-3">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                      Contém Peças Brancas
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group" >
+                       {{ form.pecas_branca }}
+
+                    </div>
+                  </div>
+                </div>
+                 </div>
+            
+            </div>
+
+
+
+            <div id="step-2" class="hide content" >
+
+              <div class="form-group row">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                  Responsavel pelo Pedido
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" >
+                  {{ form.nome_responsavel }}
+                  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                </div>
+              </div>
+
+                <div class="form-group row">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Data para busca das peças
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" type="date" min= { datetime.now } >
+                    {{ form.data_busca }}
+                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Endereço para busca das peças
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                    {{ form.endereco_busca }}
+                    <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Endereço para entrega das peças
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                    {{ form.endereco_entrega }}
+                    <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Cartão para pagamento
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                    {{ form.pagamento }}
+                    <span class="fa fa-credit-card form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                     
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <a href="{% url 'index'%}" class="btn btn-primary">Cancelar</a>
+                      <button type="submit" class="btn btn-success">Enviar Pedido</button>
+                    </div>
+                      
+                </div>
+
+            </div>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>   
+
+
+<!-- <div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <h2>Novo Pedido</h2>
+    <div class="x_content">
+
+      <form id="form-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
+      {% csrf_token %}
           <div id="wizard" class="form_wizard wizard_horizontal">
             <ul class="wizard_steps">
               <li>
@@ -18,8 +317,13 @@
                       Selecionar Peças<br>
                       <small>Escolha os tipos de peças para lavagem</small>
                   </span>
+
                 </a>
               </li>
+
+
+
+
               <li>
                 <a href="#step-2" >
                   <span class="step_no">2</span>
@@ -34,34 +338,10 @@
           <div class="stepContainer">
             <div id="step-1" class="content" >
               <form id="form-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
-                <div id="TiposRoupas" class="form-group col-xs-12" >
+                  {% csrf_token %}
 
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                      Tipos de Roupas e Quantidades
-                      <span class="required">*</span>
-                    </label>
-                    <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-                      {{ n_form.tipo }}
-                    </div>
-                    <div class="col-md-1 col-sm-1 col-xs-1 form-group" >
-                      {{ n_form.quantidade }}
-                    </div>
-
-
-
-                    <label class="control-label col-md-1 col-sm-1 col-xs-1">Peças Brancas</label>
-                    <label class="control-label col-md-1 col-sm-1 col-xs-1">
-                      <div class="col-md-1 col-sm-1 col-xs-1 form-group" >
-                        {{ n_form.pecas_branca }}
-                      </div>
-                    </label>
-
-
-
-                    <!-- <a href="#" id="remove_field" class="btn btn-danger">Remover Peça(s)</a> -->
-
-                </div>
-
+                 
+      
               </form>
 
             </div>
@@ -72,74 +352,11 @@
 
 
             <div id="step-2" class="hide content" >
-              <!-- <h2 class="StepTitle">Step 2 Content</h2> -->
-              <form id="form-finaliza-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                    Responsavel pelo Pedido
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" >
-                    {{ form.nome_responsavel }}
-                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                  </div>
-                </div>
+              
+              <form >
 
-                <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                    Data para busca das peças
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" type="date" min= { datetime.now } >
-                    {{ form.data_busca }}
-                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                  </div>
-                </div>
+                
 
-                <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                    Endereço para busca das peças
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-                    {{ form.endereco_busca }}
-                    <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                    Endereço para entrega das peças
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-                    {{ form.endereco_entrega }}
-                    <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                    Cartão para pagamento
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
-                    {{ form.pagamento }}
-                    <span class="fa fa-credit-card form-control-feedback left" aria-hidden="true"></span>
-                  </div>
-                </div>
-
-
-                <!-- <div class="form-group">
-                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button id="botaoAdd" class="btn btn-dark">Adicionar Peças</button>
-                  </div>
-
-                    <div class="input_fields_wrap ">
-                    </div>
-
-                </div> -->
 
                 <div class="form-group">
                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -147,9 +364,6 @@
                     <button type="submit" class="btn btn-success">Enviar Pedido</button>
                   </div>
                 </div>
-
-
-
 
               </form>
 
@@ -165,45 +379,53 @@
     </div>
   </div>
 </div>
+ -->
+
+
+                <!-- <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button id="botaoAdd" class="btn btn-dark">Adicionar Peças</button>
+                  </div>
+                    <div class="input_fields_wrap ">
+                    </div>
+                </div> -->
 {% endblock content %}
 
 
 {% block javascript %}
-<!--
-<script>
-$("#segmentos" ).change(function() {
-  var valores = $("#segmentos").val();
-  console.log(valores);
-  $.inArray("1", valores) >=0 ? $('#total-cama').removeClass('hide') : $('#total-cama').addClass('hide');
-  $.inArray("2", valores) >=0 ? $('#total-banho').removeClass('hide') : $('#total-banho').addClass('hide');
-});
-</script> -->
-
-
-
 
 <script>
-  var max_fields      = 11; //maximum input boxes allowed
+  var max_fields      = 10; //maximum input boxes allowed
   var wrapper         = $(".input_fields_wrap"); //Fields wrapper
   var add_button      = $("#botaoAdd"); //Add button ID
 
-  var x = 1; //initlal text box count
+  var x = 0; //initlal text box count
   $(add_button).click(function(e){ //on add input button click
       e.preventDefault();
       if(x < max_fields){ //max input box allowed
 
           x++; //text box increment
-          //$(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
-          $('#TiposRoupas').clone().removeClass('hide').appendTo($('.input_fields_wrap'));
-          // $('#TiposRoupas').setAttribute("id", "tipo1");
+
+          var t = $('#TiposRoupas').clone().removeClass('hide').appendTo($('.input_fields_wrap'));
+          t.find("#id_tipo").attr("id", "id_tipo" + x);
+          t.find("#id_quantidade").attr("id", "id_quantidade"+x);
+          t.find("#id_pecas_branca").attr("id", "id_pecas_branca"+x);
+
       }
   });
 
-  // $('#modelo').on("click",".remove_field", function(e){ //user click on remove text
+
   $(wrapper).on("click","#remove_field", function(e){ //user click on remove text
       e.preventDefault(); $(this).parent('div').remove(); x--;
   })
 
+  var tipos = [""];
+  var quantidades = [""];
+
+  function TiposRoupas() {
+      
+      
+  }
 
 
   $( "#form-pedido" ).submit(function( event ) {
@@ -211,29 +433,81 @@ $("#segmentos" ).change(function() {
     event.preventDefault();
   });
 
-  // $("#segmentos" ).change(function() {
-  //   var valores = $("#segmentos").val();
-  //   console.log(valores);
-  //   $.inArray("1", valores) >=0 ? $('#total-cama').removeClass('hide') : $('#total-cama').addClass('hide');
-  //   $.inArray("2", valores) >=0 ? $('#total-banho').removeClass('hide') : $('#total-banho').addClass('hide');
-  // });
+
 
   $(document).ready(function() {
     var valor = 0;
     $('#wizard').smartWizard();
-
     $('#wizard_verticle').smartWizard({
       transitionEffect: 'slide'
     });
-
-
-
     $('#step-2').removeClass('hide');
-    $('.buttonNext').addClass('btn btn-success');
     $('.buttonPrevious').addClass('btn btn-primary');
-    $('.buttonFinish').addClass('btn btn-default');
+    $('.buttonNext').addClass('btn btn-success').attr("onClick", "TiposRoupas()");;
+    $('.buttonFinish').addClass('hide');
+    // $('.buttonFinish').attr("type", "submit");
   });
+
+
+  
 </script>
 
 
 {% endblock %}
+
+def calcula_valor(self):
+    #     valor = 0
+    #     quantidade_roupas = 0
+    #     # print "testeeeee " + str(self.tipos_roupas.count())
+    #     for tipo in self.tipos_roupas.all():
+    #         # print '----> ', tipo.tipo, tipo.get_tipo_display()
+    #         if tipo.tipo == 1:
+    #             valor += tipo.quantidade * 7
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 2:
+    #             valor += tipo.quantidade * 4
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 3:
+    #             valor += tipo.quantidade * 22
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 4:
+    #             valor += tipo.quantidade * 9
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 5:
+    #             valor += tipo.quantidade * 25
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 6:
+    #             valor += tipo.quantidade * 3
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 7:
+    #             valor += tipo.quantidade * 9
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 8:
+    #             valor += tipo.quantidade * 4
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 9:
+    #             valor += tipo.quantidade * 10
+    #             quantidade_roupas += 1
+    #             pass
+    #         elif tipo.tipo == 10:
+    #             valor += tipo.quantidade * 2
+    #             quantidade_roupas += 1
+    #             pass
+    #         # else:
+    #         #     # mais mais codigo
+    #         #     pass
+
+    #     if quantidade_roupas > 1 and self.pecas_branca == True:
+    #         valor +=7
+
+    #     valor += 5 #Valor do Frete (Chama o Leo) OBS: nao passar o CEP, pois ele tem que descobrir
+    #     self.valor_pedido = valor
+    #     self.save()

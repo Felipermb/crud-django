@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from pedido.models import *
 from pedido.forms import *
+from pedido.const import *
 # Create your views here.
 
 
@@ -20,10 +21,11 @@ class NovoPedido(LoginRequiredMixin, CreateView):
         self.initial.update({'user': self.request.user.id })
         return self.initial
 
-    def get_context_data(self, **kwargs):
-        context = super(NovoPedido, self).get_context_data(**kwargs)
-        context['n_form'] = FormularioTipoRoupa()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super(NovoPedido, self).get_context_data(**kwargs)
+    #     context['n_form'] = FormularioTipoRoupa()
+    #     return context
+
         
 
 class ListarPedido(ListView):
