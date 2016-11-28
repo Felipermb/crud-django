@@ -58,61 +58,61 @@ class Pedido(models.Model):
     	# return ''.format()
 
     # def calcula_valor(self):
-    #     valor = 0
-    #     quantidade_roupas = 0
-    #     # print "testeeeee " + str(self.tipos_roupas.count())
-    #     for tipo in self.tipos_roupas.all():
-    #         # print '----> ', tipo.tipo, tipo.get_tipo_display()
-    #         if tipo.tipo == 1:
-    #             valor += tipo.quantidade * 7
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 2:
-    #             valor += tipo.quantidade * 4
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 3:
-    #             valor += tipo.quantidade * 22
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 4:
-    #             valor += tipo.quantidade * 9
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 5:
-    #             valor += tipo.quantidade * 25
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 6:
-    #             valor += tipo.quantidade * 3
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 7:
-    #             valor += tipo.quantidade * 9
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 8:
-    #             valor += tipo.quantidade * 4
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 9:
-    #             valor += tipo.quantidade * 10
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 10:
-    #             valor += tipo.quantidade * 2
-    #             quantidade_roupas += 1
-    #             pass
-    #         # else:
-    #         #     # mais mais codigo
-    #         #     pass
+        # valor = 0
+        # quantidade_roupas = 0
+        # # print "testeeeee " + str(self.tipos_roupas.count())
+        # for tipo in self.tipos_roupas.all():
+        #     # print '----> ', tipo.tipo, tipo.get_tipo_display()
+        #     if tipo.tipo == 1:
+        #         valor += tipo.quantidade * 7
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 2:
+        #         valor += tipo.quantidade * 4
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 3:
+        #         valor += tipo.quantidade * 22
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 4:
+        #         valor += tipo.quantidade * 9
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 5:
+        #         valor += tipo.quantidade * 25
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 6:
+        #         valor += tipo.quantidade * 3
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 7:
+        #         valor += tipo.quantidade * 9
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 8:
+        #         valor += tipo.quantidade * 4
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 9:
+        #         valor += tipo.quantidade * 10
+        #         quantidade_roupas += 1
+        #         pass
+        #     elif tipo.tipo == 10:
+        #         valor += tipo.quantidade * 2
+        #         quantidade_roupas += 1
+        #         pass
+        #     # else:
+        #     #     # mais mais codigo
+        #     #     pass
 
-    #     if quantidade_roupas > 1 and self.pecas_branca == True:
-    #         valor +=7
+        # if quantidade_roupas > 1 and self.pecas_branca == True:
+        #     valor +=7
 
-    #     valor += 5 #Valor do Frete (Chama o Leo) OBS: nao passar o CEP, pois ele tem que descobrir
-    #     self.valor_pedido = valor
-    #     self.save()
+        # valor += 5 #Valor do Frete (Chama o Leo) OBS: nao passar o CEP, pois ele tem que descobrir
+        # self.valor_pedido = valor
+        # self.save()
 
 
 # class TipoRoupa(models.Model):

@@ -22,6 +22,8 @@
             </a>
           </li>
 
+          
+
           <li>
             <a href="#step-2" >
               <span class="step_no">2</span>
@@ -31,6 +33,8 @@
               </span>
             </a>
           </li>
+
+
         </ul>
           <div class="stepContainer">
             <div id="step-1" class="content">
@@ -225,8 +229,6 @@
             </div>
 
             <div id="step-2" class="hide content" >
-            ::before
-
               <div class="form-group row">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                   Responsavel pelo Pedido
@@ -268,6 +270,16 @@
                   <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
                     {{ form.endereco_entrega }}
                     <span class="fa fa-location-arrow form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                 <div class="form-group row">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    Valor do Pedido
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                    {{ form.valor_pedido }}
                   </div>
                 </div>
 
@@ -398,7 +410,7 @@
   var wrapper         = $(".input_fields_wrap"); //Fields wrapper
   var add_button      = $("#botaoAdd"); //Add button ID
 
-  var x = 0; //initlal text box count
+  // var x = 0; //initlal text box count
   $(add_button).click(function(e){ //on add input button click
       e.preventDefault();
       if(x < max_fields){ //max input box allowed
@@ -422,7 +434,58 @@
   var quantidades = [""];
 
   function TiposRoupas() {
-      
+        valor = 5 // começa com o valor do frete
+          x = 0
+
+       
+        if($('#id_camisa').is( ':checked')){
+          valor += $('#id_quantidadeCamisa').val() * 7
+        }
+        
+        if($('#id_camiseta').is( ':checked')){
+          valor += $('#id_quantidadeCamiseta').val() * 4
+        }
+        
+        if($('#id_edredom').is( ':checked')){
+          valor += $('#id_quantidadeEdredom').val() * 22
+        }
+
+        if($('#id_lencol').is( ':checked')){
+          valor += $('#id_quantidadeLencol').val() * 9
+        }
+
+        if($('#id_rLuxo').is( ':checked')){
+          valor += $('#id_quantidadeRLuxo').val() * 25
+        }
+
+        if($('#id_rIntima').is( ':checked')){
+          valor += $('#id_quantidadeRIntima').val() * 3
+        }
+
+        if($('#id_rJeans').is( ':checked')){
+          valor += $('#id_quantidadeRJeans').val() * 9
+        }
+
+        if($('#id_tBanho').is( ':checked')){
+          valor += $('#id_quantidadeTBanho').val() * 4
+        }
+
+        if($('#id_tMesa').is( ':checked')){
+          valor += $('#id_quantidadeCamisa').val() * 10
+        }
+
+        if($('#id_tRosto').is( ':checked')){
+          valor += $('#id_quantidadeCamisa').val() * 2
+        }
+
+        if($('#id_pecas_branca').is( ':checked')){
+          valor += 7
+        }
+
+        alert(valor)
+
+        $('#id_valor_pedido').val(valor.toFixed(2));
+        $('#id_valor_pedido').attr("disabled", "disabled")
       
   }
 
@@ -448,65 +511,13 @@
   });
 
 
+
+
+
   
 </script>
 
 
+
+
 {% endblock %}
-
-def calcula_valor(self):
-    #     valor = 0
-    #     quantidade_roupas = 0
-    #     # print "testeeeee " + str(self.tipos_roupas.count())
-    #     for tipo in self.tipos_roupas.all():
-    #         # print '----> ', tipo.tipo, tipo.get_tipo_display()
-    #         if tipo.tipo == 1:
-    #             valor += tipo.quantidade * 7
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 2:
-    #             valor += tipo.quantidade * 4
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 3:
-    #             valor += tipo.quantidade * 22
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 4:
-    #             valor += tipo.quantidade * 9
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 5:
-    #             valor += tipo.quantidade * 25
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 6:
-    #             valor += tipo.quantidade * 3
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 7:
-    #             valor += tipo.quantidade * 9
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 8:
-    #             valor += tipo.quantidade * 4
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 9:
-    #             valor += tipo.quantidade * 10
-    #             quantidade_roupas += 1
-    #             pass
-    #         elif tipo.tipo == 10:
-    #             valor += tipo.quantidade * 2
-    #             quantidade_roupas += 1
-    #             pass
-    #         # else:
-    #         #     # mais mais codigo
-    #         #     pass
-
-    #     if quantidade_roupas > 1 and self.pecas_branca == True:
-    #         valor +=7
-
-    #     valor += 5 #Valor do Frete (Chama o Leo) OBS: nao passar o CEP, pois ele tem que descobrir
-    #     self.valor_pedido = valor
-    #     self.save()
