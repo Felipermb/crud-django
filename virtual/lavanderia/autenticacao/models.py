@@ -17,7 +17,7 @@ class Endereco(models.Model):
 	cep = models.CharField(max_length=8)
 	complemento = models.CharField(max_length=100)
 	numero = models.CharField(max_length=5)
-	cliente = models.ForeignKey(Cliente, related_name="enderecos")
+	cliente = models.ForeignKey(Cliente, related_name="enderecos", default='User.id')
 
 	def __str__(self):
 		return 'CEP: {0} - NUM: {1}'.format(self.cep, self.numero)
@@ -27,7 +27,7 @@ class Cartao(models.Model):
 	cod_seg = models.CharField(max_length=3)
 	data_vencimento = models.CharField(max_length=7)
 	nome = models.CharField(max_length=100)
-	cliente = models.ForeignKey(Cliente, related_name="cartoes")
+	cliente = models.ForeignKey(Cliente, related_name="cartoes", default='User.id')
 
 	def __str__(self):
 		return 'NOME: {0} - CARTAO: {1}{2}{3}{4} .... {5}{6}{7}{8}'.format(self.nome, self.num[0], self.num[1], self.num[2], self.num[3], self.num[12], self.num[13], self.num[14], self.num[15] )

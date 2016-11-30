@@ -1,10 +1,42 @@
 
 # -*- coding: utf-8 -*-
-from django.views.generic import View
+from django.views.generic import View ,CreateView
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse_lazy
+from autenticacao.models import *
+from autenticacao.forms import *
+from django.db import IntegrityError
+
+
+
+class NovoCartao(LoginRequiredMixin, CreateView):
+    model = Cartao
+    form_class = FormularioCartao
+    template_name = 'autenticacao/cartao.html'
+    success_url = reverse_lazy('index')
+
+    def get_initial(self):
+        print self.request.user, ' --> ', self.request.user.id
+        self.initial.update({'user': self.request.user.id })
+        return self.initial
+
+
+class NovoEndereco(LoginRequiredMixin, CreateView):
+    model = Endereco
+    form_class = FormularioEndereco
+    template_name = 'autenticacao/endereco.html'
+    success_url = reverse_lazy('index')
+
+    def get_initial(self):
+        print self.request.user, ' --> ', self.request.user.id
+        self.initial.update({'user': self.request.user.id })
+        return self.initial
+
+
+
 
 class Autenticacao(View):
     """
@@ -18,36 +50,63 @@ class Autenticacao(View):
             return render(request, 'autenticacao/login.html', {'next': next_url})
 
     def post(self, request):
+        acao = request.POST.get('acao', 'login')
+
+
+
+        print acao
+
+        acao_list = {
+            'login': self.login,
+            'cadastrar': self.cadastrar
+        }
+        return acao_list[acao]()
+
+    def login (self):
         resposta = {
             'sucesso': False,
             'mensagem': ''
         }
-        usuario = request.POST.get("login")
-        senha = request.POST.get("senha")
+        usuario = self.request.POST.get("login")
+        senha = self.request.POST.get("senha")
         user = authenticate(username=usuario, password=senha)
         if user:
-            login(request, user)
-            return redirect(request.POST.get('next', '/index'))
+            login(self.request, user)
+            return redirect(self.request.POST.get('next', '/index'))
         else:
             resposta['mensagem'] = 'Login ou Senha incorreto(s)'
 
-        return render(request, 'autenticacao/login.html', resposta)
+        return render(self.request, 'autenticacao/login.html', resposta)
 
-    def novousuario(self,request):
-        primeiroNome = request.NOVOUSUARIO.get("first-name")
-        senha = request.POST.get("senha")
+    def cadastrar(self):
+        resposta = {
+            'sucesso': False,
+            'mensagem': ''
+        }
 
-        print self.primeiroNome
-        # user = authenticate(username=usuario, password=senha)
-        # if user:
-        #     login(request, user)
-        #     return redirect(request.POST.get('next', '/index'))
-        # else:
-        #     resposta['mensagem'] = 'Login ou Senha incorreto(s)'
+        first_name = self.request.POST.get("first-name")
+        last_name = self.request.POST.get("last-name")
+        email = self.request.POST.get("email")
+        login = self.request.POST.get("login")
+        senha = self.request.POST.get("senha")
 
-        return redirect(request.NOVOUSUARIO.get('next', '/index'))
+        try:
+            user = User.objects.create_user(login, email, senha)
+            user.last_name = last_name
+            user.first_name = first_name
+            user.save()
+            login(self.request, user)
+            return redirect(self.request.POST.get('next', '/index'))
+        except IntegrityError:
+            resposta['mensagem'] = 'Usuário já cadastrado'
+        except Exception as erro:
 
 
+            print '+'*10, erro, '+'*10
+
+            resposta['mensagem'] = 'Cadastro não realizado'
+
+        return render(self.request, 'autenticacao/login.html', resposta)
 
 
 class Index(LoginRequiredMixin, View):
@@ -81,4 +140,3 @@ class Logout(View):
     def get(self,request):
         logout(request)
         return redirect('autenticacao')
-

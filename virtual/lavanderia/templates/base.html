@@ -41,18 +41,18 @@
               </a>
             </div>
 
-            <div class="clearfix"></div>
+
 
             <!-- menu profile quick info -->
             <div class="profile">
-              <div class="profile_info">
+              <div class=>
                 <span>Bem Vindo!</span>
                 <h2>{{ user.get_full_name }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
 
-            <br /><br /><br /><br /><br />
+            <!-- <br /><br /><br /><br /><br /> -->
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -64,15 +64,19 @@
                   </li>
 
                   <li>
-                      <a href="{% url 'autenticacao' %}"> <i class="fa fa-bar-chart-o"  ></i> Status </a>
-                  </li>
-
-                  <li>
                       <a href="{% url 'listar-pedidos' %}" ><i class="fa fa-desktop"></i> Histórico </a>
                   </li>
 
                   <li>
                       <a href="{% url 'contato' %}"><i class="fa fa-comments-o"></i> Contatos </a>
+                  </li>
+
+                  <li>
+                      <a href="{% url 'cartao' %}"><i class="fa fa-credit-card"></i> Adicionar Cartão </a>
+                  </li>
+
+                  <li>
+                      <a href="{% url 'endereco' %}"><i class="fa fa-location-arrow"></i> Adicionar Endereço </a>
                   </li>
 
                 </ul>
@@ -156,7 +160,7 @@
     <script src="{% static "js/bootstrap-progressbar.min.js" %}"></script>
     <!-- iCheck -->
     <script src="{% static "js/icheck.min.js" %}"></script>
-    
+
     <script src="{% static "js/jquery.smartWizard.js"%}"></script>
 
 

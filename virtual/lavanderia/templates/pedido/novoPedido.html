@@ -22,7 +22,7 @@
             </a>
           </li>
 
-          
+
 
           <li>
             <a href="#step-2" >
@@ -62,7 +62,7 @@
                 <div class="form-group row ">
                   <div class="col-lg-6 col-lg-offset-3">
                     <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                      Camiseta ou Blusa 
+                      Camiseta ou Blusa
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-3 form-group" id="id_camisa">
                        {{ form.camiseta }}
@@ -72,7 +72,7 @@
                         {{ form.quantidadeCamiseta }}
                     </div>
                   </div>
-                </div> 
+                </div>
                 </div>
 
                 <div class="x_panel">
@@ -89,7 +89,7 @@
                          {{ form.quantidadeEdredom }}
                     </div>
                   </div>
-                </div> 
+                </div>
                 </div>
 
                 <div class="x_panel">
@@ -106,7 +106,7 @@
                         {{ form.quantidadeLencol }}
                     </div>
                   </div>
-                </div> 
+                </div>
                 </div>
 
                 <div class="x_panel">
@@ -123,7 +123,7 @@
                         {{ form.quantidadeRLuxo }}
                     </div>
                   </div>
-                </div> 
+                </div>
                 </div>
 
                 <div class="x_panel">
@@ -140,7 +140,7 @@
                         {{ form.quantidadeRIntima }}
                     </div>
                   </div>
-                </div> 
+                </div>
                 </div>
 
                 <div class="x_panel">
@@ -174,7 +174,7 @@
                         {{ form.quantidadeTBanho }}
                     </div>
                   </div>
-                </div> 
+                </div>
                 </div>
 
                 <div class="x_panel">
@@ -191,7 +191,7 @@
                         {{ form.quantidadeTMesa }}
                     </div>
                   </div>
-                </div> 
+                </div>
                 </div>
 
 
@@ -225,7 +225,7 @@
                   </div>
                 </div>
                  </div>
-            
+
             </div>
 
             <div id="step-2" class="hide content" >
@@ -278,8 +278,11 @@
                     Valor do Pedido
                     <span class="required">*</span>
                   </label>
-                  <div class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                  <div class="hide col-md-3 col-sm-3 col-xs-6 form-group" >
                     {{ form.valor_pedido }}
+                  </div>
+                  <div  class="col-md-3 col-sm-3 col-xs-6 form-group" >
+                       <input id="teste" type="text" class="form-control">
                   </div>
                 </div>
 
@@ -294,112 +297,23 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                     
+
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                       <a href="{% url 'index'%}" class="btn btn-primary">Cancelar</a>
                       <button type="submit" class="btn btn-success">Enviar Pedido</button>
                     </div>
-                      
+
                 </div>
 
             </div>
           </div>
-          
+
         </form>
       </div>
     </div>
   </div>
-</div>   
-
-
-<!-- <div class="col-md-12 col-sm-12 col-xs-12">
-  <div class="x_panel">
-    <h2>Novo Pedido</h2>
-    <div class="x_content">
-
-      <form id="form-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
-      {% csrf_token %}
-          <div id="wizard" class="form_wizard wizard_horizontal">
-            <ul class="wizard_steps">
-              <li>
-                <a href="#step-1" >
-                  <span class="step_no">1</span>
-                  <span class="step_descr">
-                      Selecionar Peças<br>
-                      <small>Escolha os tipos de peças para lavagem</small>
-                  </span>
-
-                </a>
-              </li>
-
-
-
-
-              <li>
-                <a href="#step-2" >
-                  <span class="step_no">2</span>
-                  <span class="step_descr">
-                      Finalizar Pedido<br>
-                      <small>Dados para finalizar pedido</small>
-                  </span>
-                </a>
-              </li>
-            </ul>
-
-          <div class="stepContainer">
-            <div id="step-1" class="content" >
-              <form id="form-pedido" class="form-horizontal form-label-left" action="/pedido/novo_pedido/" method="post">
-                  {% csrf_token %}
-
-                 
-      
-              </form>
-
-            </div>
-
-
-
-
-
-
-            <div id="step-2" class="hide content" >
-              
-              <form >
-
-                
-
-
-                <div class="form-group">
-                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <a href="{% url 'index'%}" class="btn btn-primary">Cancelar</a>
-                    <button type="submit" class="btn btn-success">Enviar Pedido</button>
-                  </div>
-                </div>
-
-              </form>
-
-
-            </div>
-
-          </div>
-
-        </div>
-      </form>
-
-
-    </div>
-  </div>
 </div>
- -->
 
-
-                <!-- <div class="form-group">
-                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button id="botaoAdd" class="btn btn-dark">Adicionar Peças</button>
-                  </div>
-                    <div class="input_fields_wrap ">
-                    </div>
-                </div> -->
 {% endblock content %}
 
 
@@ -437,15 +351,15 @@
         valor = 5 // começa com o valor do frete
           x = 0
 
-       
+
         if($('#id_camisa').is( ':checked')){
           valor += $('#id_quantidadeCamisa').val() * 7
         }
-        
+
         if($('#id_camiseta').is( ':checked')){
           valor += $('#id_quantidadeCamiseta').val() * 4
         }
-        
+
         if($('#id_edredom').is( ':checked')){
           valor += $('#id_quantidadeEdredom').val() * 22
         }
@@ -471,11 +385,11 @@
         }
 
         if($('#id_tMesa').is( ':checked')){
-          valor += $('#id_quantidadeCamisa').val() * 10
+          valor += $('#id_quantidadeTMesa').val() * 10
         }
 
         if($('#id_tRosto').is( ':checked')){
-          valor += $('#id_quantidadeCamisa').val() * 2
+          valor += $('#id_quantidadeTRosto').val() * 2
         }
 
         if($('#id_pecas_branca').is( ':checked')){
@@ -485,8 +399,9 @@
         alert(valor)
 
         $('#id_valor_pedido').val(valor.toFixed(2));
-        $('#id_valor_pedido').attr("disabled", "disabled")
-      
+        $('#teste').val(valor.toFixed(2));
+        $('#teste').attr("disabled", "disabled");
+
   }
 
 
@@ -514,7 +429,7 @@
 
 
 
-  
+
 </script>
 
 

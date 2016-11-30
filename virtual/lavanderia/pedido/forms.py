@@ -6,21 +6,21 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from const import *
 
-from django.forms.extras.widgets import SelectDateWidget
+# from django.forms.extras.widgets import SelectDateWidget
 
 class FormularioPedido(forms.ModelForm):
     class Meta:
         model = Pedido
-        
+
         exclude = [ 'data_entrega', 'data_pedido']
         # date_field = forms.DateField(widget=SelectDateWidget)
 
-    def __init__(self, *args, **kwargs): 
+    def __init__(self, *args, **kwargs):
         super(FormularioPedido, self).__init__(*args, **kwargs)
         self.fields['pagamento'].queryset = Cartao.objects.filter(cliente__user__id = kwargs['initial']['user'])
         self.fields['endereco_busca'].queryset = Endereco.objects.filter(cliente__user__id = kwargs['initial']['user'])
         self.fields['endereco_entrega'].queryset = Endereco.objects.filter(cliente__user__id = kwargs['initial']['user'])
-        
+
         self.fields['usuario'].queryset = Cliente.objects.filter(user__id = kwargs['initial']['user'])
 
 
@@ -89,12 +89,12 @@ class FormularioPedido(forms.ModelForm):
 #     class Meta:
 #         model = TipoRoupa
 #         exclude = ['pedido']
-        
+
 
 #     def __init__(self, *args, **kwargs):
 #         super(FormularioTipoRoupa, self).__init__(*args, **kwargs)
 #         self.fields['tipo'].queryset = Pedido.objects.filter()
-        
+
 
 #         self.fields['quantidade'].widget.attrs['min'] = 0
 #         self.fields['quantidade'].widget.attrs['value'] = 0

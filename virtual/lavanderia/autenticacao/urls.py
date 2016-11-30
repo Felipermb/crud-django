@@ -7,4 +7,7 @@ urlpatterns = [
     url(r'^index/', Index.as_view(), name='index'),
     url(r'^contato/', Contato.as_view(), name='contato'),
     url(r'^logout/', Logout.as_view(), name='logout'),
+    url(r'^cartao/', NovoCartao.as_view(), name='cartao'),
+    url(r'^endereco/', NovoEndereco.as_view(), name='endereco'),
+    
 ]

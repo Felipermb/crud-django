@@ -24,6 +24,7 @@
   </head>
 
   <body class="login">
+
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
@@ -94,7 +95,9 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form action="/" method="novousuario">
+            <form action="/" method="post">
+              <input type="hidden" name="acao" value="cadastrar">
+              {% csrf_token %}
               <h1>Criando Conta</h1>
                <div>
                 <input type="text" class="form-control" name="first-name" placeholder="Primeiro Nome" required="" />
@@ -115,7 +118,7 @@
                 <button type="submit">Entrar</button>
               </div>
 
-              <div class="clearfix"></div> 
+              <div class="clearfix"></div>
 
               <div class="separator">
                 <p class="change_link">Já é Membro?
@@ -131,6 +134,14 @@
                 </div>
               </div>
             </form>
+
+
+            {% if sucesso == False %}
+                <div class="alert alert-danger">
+                  {{ mensagem }}
+                </div>
+            {% endif %}
+
           </section>
         </div>
 
