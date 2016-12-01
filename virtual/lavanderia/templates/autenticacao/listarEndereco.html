@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<ul>
+   {% for endereco in object_list %}
+     <li>
+       {{ endereco }}
+     </li>
+   {% endfor %}
+</ul>
+{% endblock content %}

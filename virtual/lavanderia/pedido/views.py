@@ -34,3 +34,7 @@ class ListarPedido(ListView):
     """
     model = Pedido
     template_name = 'pedido/historico.html'
+
+    def get_queryset(self):
+        self.request_user = self.request.user
+        return Pedido.objects.filter(usuario__user=self.request_user)

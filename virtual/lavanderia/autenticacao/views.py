@@ -1,6 +1,6 @@
 
 # -*- coding: utf-8 -*-
-from django.views.generic import View ,CreateView
+from django.views.generic import View ,CreateView, DeleteView, ListView
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,6 +11,31 @@ from autenticacao.forms import *
 from django.db import IntegrityError
 
 
+class ListarCartao(LoginRequiredMixin, ListView):
+    login_url='/'
+    model = Cartao
+    template_name = 'autenticacao/listarCartao.html'
+
+    def get_queryset(self):
+        self.request_user = self.request.user
+        return Cartao.objects.filter(cliente__user=self.request_user)
+
+class ListarEndereco(LoginRequiredMixin, ListView):
+    login_url='/'
+    model = Endereco
+    template_name = 'autenticacao/listarEndereco.html'
+
+    def get_queryset(self):
+        self.request_user = self.request.user
+        return Endereco.objects.filter(cliente__user=self.request_user)
+
+    
+
+class DeletarCartao(DeleteView):
+
+    model = Cartao
+    template_name = 'autenticacao/deletar_cartao.html'
+    success_url = reverse_lazy('index')
 
 class NovoCartao(LoginRequiredMixin, CreateView):
     model = Cartao
