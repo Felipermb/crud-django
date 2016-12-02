@@ -4,8 +4,8 @@
 {% block content %}
 
 <div class="col-md-12 col-sm-12 col-xs-12">
-	<div class="x_panel">
-	<h2> Bom Dia, Sr. {{ user.get_full_name }}</h2>
+  <div class="x_panel">
+  <h2 id="teste"></h2><h2>, Sr. {{ user.get_full_name }}</h2>
 	</div>
 </div>
                 	
@@ -83,3 +83,18 @@
               </div>
 
 {% endblock content %}
+
+{% block javascript %}
+<script>
+  var myDate = new Date();
+  if (myDate.getHours() > 6 && myDate.getHours() < 12){
+      $("#teste").html("<h2>Bom Dia</h2>");
+  } else if (myDate.getHours() > 12 && myDate.getHours() < 18){
+    $('#teste').val("Boa Tarde");
+  
+  }else{
+    $('#teste').val("Boa Noite");
+  }
+</script>
+
+{% endblock %}
