@@ -15,7 +15,6 @@ class FormularioCartao(forms.ModelForm):
         self.fields['cliente'].queryset =  Cliente.objects.filter(user__id = kwargs['initial']['user'])
 
 
-
         self.fields['nome'].widget.attrs['class'] = 'form-control has-feedback-left'
         self.fields['num'].widget.attrs['class'] = 'form-control has-feedback-left'
         self.fields['cod_seg'].widget.attrs['class'] = 'form-control has-feedback-left'
