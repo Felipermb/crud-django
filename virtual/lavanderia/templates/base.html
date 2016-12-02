@@ -2,7 +2,7 @@
 <html lang="pt">
   <head>
     {% load staticfiles %}
-    
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -66,9 +66,7 @@
                       <a href="{% url 'listar-pedidos' %}" ><i class="fa fa-desktop"></i> Histórico </a>
                   </li>
 
-                  <li>
-                      <a href="{% url 'contato' %}"><i class="fa fa-comments-o"></i> Contatos </a>
-                  </li>
+
 
                   <li>
                       <a href="{% url 'cartao' %}"><i class="fa fa-credit-card"></i> Adicionar Cartão </a>
@@ -76,6 +74,9 @@
 
                   <li>
                       <a href="{% url 'endereco' %}"><i class="fa fa-location-arrow"></i> Adicionar Endereço </a>
+                  </li>
+                  <li>
+                      <a href="{% url 'contato' %}"><i class="fa fa-comments-o"></i> Contatos </a>
                   </li>
 
                 </ul>
@@ -167,7 +168,7 @@
     <script src="{% static "js/jquery.inputmask.bundle.min.js" %}"></script>
 
     <script src="{% static "js/custom.js" %}"></script>
-    
+
     <!-- Custom Theme Scripts -->
     <script src="{% static "js/custom.min.js" %}"></script>
 

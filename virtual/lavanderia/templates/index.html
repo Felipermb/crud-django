@@ -5,10 +5,10 @@
 
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
-  <h2 id="teste"></h2><h2>, Sr. {{ user.get_full_name }}</h2>
+  <h2 id="teste"></h2><h2>Sr(a). {{ user.get_full_name }}</h2>
 	</div>
 </div>
-                	
+
 
 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -16,11 +16,6 @@
                     <h2>Preços <small>Tabela de preços por peças </small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -32,7 +27,7 @@
                         <tr>
                           <th>Item</th>
                           <th>Preço</th>
-                          
+
                         </tr>
                       </thead>
                       <tbody>
@@ -88,12 +83,11 @@
 <script>
   var myDate = new Date();
   if (myDate.getHours() > 6 && myDate.getHours() < 12){
-      $("#teste").html("<h2>Bom Dia</h2>");
-  } else if (myDate.getHours() > 12 && myDate.getHours() < 18){
-    $('#teste').val("Boa Tarde");
-  
+      $("#teste").html("<h2>Bom Dia,</h2>");
+  } else if (myDate.getHours() >= 12 && myDate.getHours() < 18){
+    $('#teste').html("<h2>Boa Tarde,</h2>");
   }else{
-    $('#teste').val("Boa Noite");
+    $('#teste').html("<h2>Boa Noite,</h2>");
   }
 </script>
 
