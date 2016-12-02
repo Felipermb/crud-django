@@ -2,15 +2,24 @@
 
 
 {% block content %}
-
+{% load staticfiles %}
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
-  <h2 id="teste"></h2><h2>Sr(a). {{ user.get_full_name }}</h2>
+  <h2 id="teste"></h2><h2>Sr(a). {{ user.get_full_name }}, Seja Bem Vindo a Iceberg Washer</h2>
 	</div>
 </div>
 
 
 <div class="col-md-12 col-sm-12 col-xs-12">
+             
+                    <h2>Confira nossa Promoção de Natal!!! <small>HoHoHo!!</small></h2>
+                  
+                  <div class="x_content">
+                     <div class="">
+                      <h1> <img src="{% static "img/natal.jpg" %}" height="250" width="980"> </h1>
+                    </div>
+                  </div>
+
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Preços <small>Tabela de preços por peças </small></h2>

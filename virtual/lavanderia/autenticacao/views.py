@@ -167,6 +167,18 @@ class Contato(LoginRequiredMixin, View):
     def post(self, request):
         return render(request, 'contato.html', {})
 
+class Help(LoginRequiredMixin, View):
+    login_url = '/'
+
+    def get(self, request):
+        resposta = {
+            'nome' : 'Teste'
+        }
+        return render(request, 'help.html', resposta)
+
+    def post(self, request):
+        return render(request, 'help.html', {})
+
 class Logout(View):
     def get(self,request):
         logout(request)
