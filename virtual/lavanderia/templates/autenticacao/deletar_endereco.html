@@ -3,13 +3,38 @@
 
 {% block content %}
 
-<form action="" method="post">
-	{% csrf_token %}	
-	<p>
-	 Tem certeza que deseja excluir o Endereço "{{ object.cep }}" ?
-	</p>
-	<input type="submit" value="Confirmar" />
-</form>
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="x_panel">
+	    <div class="x_content">
+
+	    <h2>Deletar Endereço</h2>
+			 <table id="tabela-cartaos" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="cartaos_info">
+			  <thead>
+			      <tr role="row">
+			          <th>CEP</th>
+			          <th>Número</th>
+			          <th>Complemento</th>
+			      </tr>
+			  </thead>
+			  <tbody>
+			          <tr role="row">
+			              <td>{{object.cep}}</td>
+			              <td>{{object.numero}}</td>
+			              <td>{{object.complemento}}</td>
+			          </tr>
+			  </tbody>
+			  </table>
+			<form action="" method="post">
+				{% csrf_token %}	
+				<h2>
+					<strong>Tem certeza que deseja excluir o Endereço ?</strong>
+				</h2>
+				<input type="submit" class="btn btn-danger" value="Confirmar" />
+			</form>
+		</div>			
+  	</div>
+</div>
+
 
 
 

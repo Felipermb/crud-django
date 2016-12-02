@@ -3,12 +3,39 @@
 
 {% block content %}
 
-<form action="" method="post">
-	{% csrf_token %}
-	<p>
-	 Tem certeza que deseja excluir o Cartão "{{ object.nome }}" ?
-	</p>
-	<input type="submit" value="Confirmar" />
-</form>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel" >
+    	<div class="x_content">
+    		<div class="x_content">
+				<table id="tabela-cartaos" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="cartaos_info">
+					 <thead>
+					     <tr role="row">
+					          <th>Nome no Cartão</th>
+					          <th>Número</th>
+					          <th>Código de Segurança</th>
+					          <th>Data de Vencimento</th>
+					      </tr>
+					  </thead>
+					  <tbody>
+					          <tr role="row">
+					              <td>{{object.nome}}</td>
+					              <td>{{object.num}}</td>
+					              <td>{{object.cod_seg}}</td>
+					              <td>{{object.data_vencimento}}</td>
+					          </tr>
+					  </tbody>
+				</table>
+			</div>	
+			<form action="" method="post" >
+				{% csrf_token %}
+				<h2>
+					<strong>Tem certeza que deseja excluir o Cartão ?<strong>
+				</h2>
+				<input type="submit" class="btn btn-danger" value="Confirmar" />
+			</form>
+    	</div>
+    </div>
+</div>
 
 {% endblock content %}
