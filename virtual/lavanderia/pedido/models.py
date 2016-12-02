@@ -15,7 +15,7 @@ class Pedido(models.Model):
     nome_responsavel = models.CharField(max_length=200)
     data_pedido = models.DateField(auto_now=True)
     data_busca = models.DateField(default = datetime.now)
-    data_entrega = models.DateField(default = datetime.now()+ timedelta(days=2) )
+    data_entrega = models.DateField(default = datetime.now() + timedelta(days=2) )
     valor_pedido = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     endereco_busca = models.ForeignKey(Endereco,related_name="pedidos_busca")
     endereco_entrega = models.ForeignKey(Endereco,related_name="pedidos_entrega")

@@ -2,6 +2,7 @@
 <html lang="pt">
   <head>
     {% load staticfiles %}
+    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -44,15 +45,13 @@
 
 
             <!-- menu profile quick info -->
-            <div class="profile">
-              <div class=>
+            <div class="hr">
+              <div >
                 <span>Bem Vindo!</span>
-                <h2>{{ user.get_full_name }}</h2>
+                <h2 style="color:#F0F8FF">{{ user.get_full_name }}</h2>
               </div>
             </div>
-            <!-- /menu profile quick info -->
 
-            <!-- <br /><br /><br /><br /><br /> -->
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -168,39 +167,7 @@
     <script src="{% static "js/jquery.inputmask.bundle.min.js" %}"></script>
 
     <script src="{% static "js/custom.js" %}"></script>
-
-    <script src="{% static "daterangepicker.js" %}"></script>
-    <!-- Flot -->
-
-    <!-- <script src="{% static "daterangepicker.js" %}"></script>
-
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script> -->
-
-
-
-    <!-- Flot plugins -->
-    <!-- <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script> -->
-
-
-    <!-- DateJS -->
-    <!-- <script src="../vendors/DateJS/build/date.js"></script> -->
-
-    <!-- JQVMap -->
-    <!-- <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script> -->
-
-
-    <!-- bootstrap-daterangepicker -->
-    <!-- <script src="js/moment/moment.min.js"></script>
-    <script src="js/datepicker/daterangepicker.js"></script> -->
-
-
+    
     <!-- Custom Theme Scripts -->
     <script src="{% static "js/custom.min.js" %}"></script>
 

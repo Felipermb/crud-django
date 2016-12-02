@@ -2,12 +2,38 @@
 
 
 {% block content %}
-<ul>
-   {% for pedido in object_list %}
-     <li>
-       {{ pedido.nome_responsavel }}
-     </li>
-   {% endfor %}
-</ul>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="x_panel">
+	    <h2>Lista de Pedidos Realizados</h2>
+	    <div class="x_content">
+			 <table id="tabela-pedidos" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="pedidos_info">
+			  <thead>
+			      <tr role="row">
+			          <th>Nome Responsavel</th>
+			          <th>Data do Pedido</th>
+			          <th>Data da Entrega</th>
+			          <th>Valor do Pedido</th>
+			      </tr>
+			  </thead>
+			  <tbody>
+			      {% for pedido in object_list %}
+			          <tr role="row">
+			              <td>{{pedido.nome_responsavel}}</td>
+			              <td> {{pedido.data_pedido.day}}/{{pedido.data_pedido.month}}/{{pedido.data_pedido.year}}</td>
+			              <td>{{pedido.data_entrega.day}}/{{pedido.data_entrega.month}}/{{pedido.data_entrega.year}}</td>
+			              <td>R${{pedido.valor_pedido}}</td>
+			          </tr>
+			      {% endfor %}
+			  </tbody>
+			</table>
+		</div>			
+  	</div>
+</div>
 
 {% endblock content %}
+
+{% block javascript %}
+
+
+{% endblock %}

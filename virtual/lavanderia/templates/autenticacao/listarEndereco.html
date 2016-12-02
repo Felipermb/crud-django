@@ -4,11 +4,32 @@
 
 {% block content %}
 
-<ul>
-   {% for endereco in object_list %}
-     <li>
-       {{ endereco }}
-     </li>
-   {% endfor %}
-</ul>
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="x_panel">
+	    <h2>Lista de Endereços Cadastrados</h2>
+	    <div class="x_content">
+			 <table id="tabela-enderecos" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="enderecos_info">
+			  <thead>
+			      <tr role="row">
+			          <th>CEP</th>
+			          <th>Número</th>
+			          <th>Complemento</th>
+			          <th>Clique para remover</th>
+			      </tr>
+			  </thead>
+			  <tbody>
+			      {% for endereco in object_list %}
+			          <tr role="row">
+			              <td>{{endereco.cep}}</td>
+			              <td>{{endereco.numero}}</td>
+			              <td>{{endereco.complemento}}</td>
+			              <td><a href="/{{ endereco.id }}/{{ endereco.cep }}">REMOVER</a></td>
+			          </tr>
+			      {% endfor %}
+			  </tbody>
+			</table>
+		</div>			
+  	</div>
+</div>
+
 {% endblock content %}

@@ -4,11 +4,36 @@
 
 {% block content %}
 
-<ul>
-   {% for cartao in object_list %}
-     <li>
-       {{ cartao }}
-     </li>
-   {% endfor %}
-</ul>
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="x_panel">
+	    <h2>Lista de Cartões Cadastrados</h2>
+	    <div class="x_content">
+			 <table id="tabela-cartaos" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="cartaos_info">
+			  <thead>
+			      <tr role="row">
+			          <th>Nome no Cartão</th>
+			          <th>Número</th>
+			          <th>Código de Segurança</th>
+			          <th>Data de Vencimento</th>
+			          <th>Clique para remover</th>
+			      </tr>
+			  </thead>
+			  <tbody>
+			      {% for cartao in object_list %}
+			          <tr role="row">
+			              <td>{{cartao.nome}}</td>
+			              <td>{{cartao.num}}</td>
+			              <td>{{cartao.cod_seg}}</td>
+			              <td>{{cartao.data_vencimento}}</td>
+			              <td><a href="/{{ cartao.id }}">REMOVER</a></td>
+			          </tr>
+			      {% endfor %}
+			  </tbody>
+			</table>
+		</div>			
+  	</div>
+</div>
+
+
+
 {% endblock content %}

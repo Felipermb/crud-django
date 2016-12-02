@@ -9,8 +9,9 @@ urlpatterns = [
     url(r'^logout/', Logout.as_view(), name='logout'),
     url(r'^cartao/', NovoCartao.as_view(), name='cartao'),
     url(r'^endereco/', NovoEndereco.as_view(), name='endereco'),
-    url(r'^deletar-cartao/', DeletarCartao.as_view(), name='deletar_cartao'),
     url(r'^listar-cartao/', ListarCartao.as_view(), name='listar_cartao'),
     url(r'^listar-endereco/', ListarEndereco.as_view(), name='listar_endereco'),
-    
+    url(r'^(?P<pk>[0-9]+)/$', DeletarCartao.as_view(), name='deletar_cartao'),
+    url(r'^(?P<pk>[0-9]+)/(?P<cep>[0-9]{8})/$', DeletarEndereco.as_view(), name='deletar_endereco'),
+
 ]

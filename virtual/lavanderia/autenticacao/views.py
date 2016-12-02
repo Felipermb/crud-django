@@ -31,11 +31,18 @@ class ListarEndereco(LoginRequiredMixin, ListView):
 
     
 
-class DeletarCartao(DeleteView):
-
+class DeletarCartao(LoginRequiredMixin, DeleteView):
+    login_url='/'
     model = Cartao
     template_name = 'autenticacao/deletar_cartao.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar_cartao')
+
+class DeletarEndereco(LoginRequiredMixin, DeleteView):
+    login_url='/'
+    model = Endereco
+    template_name = 'autenticacao/deletar_endereco.html'
+    success_url = reverse_lazy('listar_endereco')
+
 
 class NovoCartao(LoginRequiredMixin, CreateView):
     model = Cartao
