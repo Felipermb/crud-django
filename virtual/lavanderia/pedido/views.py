@@ -26,7 +26,7 @@ class NovoPedido(LoginRequiredMixin, CreateView):
     #     context['n_form'] = FormularioTipoRoupa()
     #     return context
 
-        
+
 
 class ListarPedido(ListView):
     """
@@ -37,4 +37,4 @@ class ListarPedido(ListView):
 
     def get_queryset(self):
         self.request_user = self.request.user
-        return Pedido.objects.filter(usuario__user=self.request_user)
+        return Pedido.objects.filter(usuario__user=self.request_user).order_by('id').reverse()

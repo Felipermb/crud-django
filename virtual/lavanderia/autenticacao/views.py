@@ -29,7 +29,7 @@ class ListarEndereco(LoginRequiredMixin, ListView):
         self.request_user = self.request.user
         return Endereco.objects.filter(cliente__user=self.request_user)
 
-    
+
 
 class DeletarCartao(LoginRequiredMixin, DeleteView):
     login_url='/'
@@ -48,7 +48,7 @@ class NovoCartao(LoginRequiredMixin, CreateView):
     model = Cartao
     form_class = FormularioCartao
     template_name = 'autenticacao/cartao.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar_cartao')
 
     def get_initial(self):
         print self.request.user, ' --> ', self.request.user.id
@@ -60,7 +60,7 @@ class NovoEndereco(LoginRequiredMixin, CreateView):
     model = Endereco
     form_class = FormularioEndereco
     template_name = 'autenticacao/endereco.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar_endereco')
 
     def get_initial(self):
         print self.request.user, ' --> ', self.request.user.id
@@ -83,8 +83,6 @@ class Autenticacao(View):
 
     def post(self, request):
         acao = request.POST.get('acao', 'login')
-
-
 
         print acao
 
@@ -123,8 +121,9 @@ class Autenticacao(View):
         senha = self.request.POST.get("senha")
 
         try:
-            user = User.objects.create_user(login, email, senha)
+            user = User.objects.create_user(login, senha)
             user.last_name = last_name
+            user.email = email
             user.first_name = first_name
             user.save()
             login(self.request, user)

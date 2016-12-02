@@ -11,8 +11,7 @@ from const import *
 class FormularioPedido(forms.ModelForm):
     class Meta:
         model = Pedido
-
-        exclude = [ 'data_entrega', 'data_pedido']
+        exclude = ['data_entrega', 'data_pedido']
         # date_field = forms.DateField(widget=SelectDateWidget)
 
     def __init__(self, *args, **kwargs):
